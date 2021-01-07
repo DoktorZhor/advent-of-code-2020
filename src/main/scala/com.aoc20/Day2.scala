@@ -39,7 +39,7 @@ object Day2 extends App {
 
     private def parseInput: List[InputLine] = {
         val rawInput = Source.fromResource("day2.txt").getLines().toList
-        val parsed = rawInput.map((InputLine.fromString(_))).flatten
+        val parsed = rawInput.flatMap((InputLine.fromString(_)))
 
         if(parsed.length != rawInput.length)
             throw new RuntimeException("Failed to parse all input records")
